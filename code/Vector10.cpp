@@ -8,8 +8,12 @@
 #include "Vector10.h"
 
 Vector10::Vector10() {
-  // YOUR CODE HERE
-}
+  for(int i = 0; i < 10; i++){
+    arr[i] = 0;
+  }
+  cursor = 0;
+  }
+
 
 Vector10::~Vector10() {
   // You don't need to add anything here
@@ -17,22 +21,38 @@ Vector10::~Vector10() {
 
 // Implement this function first, since all tests use it.
 int Vector10::value_at(int index) {
-  // YOUR CODE HERE
+  return arr[index];
+  
 }
 
 // Implement this function second, since most tests use it.
 bool Vector10::push_back(int value) {
-  // YOUR CODE HERE
+  if(cursor >= 10)
+    return false;
+  arr[cursor] = value;
+  cursor++;
+  return true;
 }
 
 int Vector10::count_empty() {
-  // YOUR CODE HERE
+  return 10 - cursor;
 }
 
 bool Vector10::search(int value) {
   // YOUR CODE HERE
+  for (int i = 0; i < cursor; i++){
+    if (arr[i] == value) return true;
+
+  }
+  return false;
 }
 
 bool Vector10::remove(int index) {
-  // YOUR CODE HERE
+  if (index < 0) return false;
+  if (index >= cursor) return false;
+  for (int i = index; i < cursor; i++){
+    arr[i] = arr[i+1];
+  }
+  cursor--;
+  return true;
 }

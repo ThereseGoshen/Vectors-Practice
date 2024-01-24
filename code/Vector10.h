@@ -44,6 +44,8 @@ private:
   int arr[10];
   // you can add add more private member variables and member functions here if
   // you need
+  //cursor always points to the next remaining index
+  int cursor;
 };
 
 #endif // VECTOR10_H__
